@@ -1,4 +1,0 @@
-# Maze
-shit
-haha
-comrad

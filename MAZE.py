@@ -53,11 +53,11 @@ def creer_labyrinthe(largeur, hauteur, diff):
                         
 
 
-
+CODE, KAMRAD
 
 import random
 import networkx as nx
-
+import matplotlib.pyplot as plt
 
 def creer_labyrinthe(largeur, hauteur, diff):
     """create a maze
@@ -69,14 +69,6 @@ def creer_labyrinthe(largeur, hauteur, diff):
         for x in range(largeur):
             node = y * largeur + x
             laby.add_node(node, visited=False)
-        print (laby.nodes)
-
-    directions = {
-        "N": (0, -1),
-        "S": (0, 1),
-        "E": (1, 0),
-        "W": (-1, 0)
-    }
 
     stack = [(0, 0)]
     start_node = 0
@@ -106,12 +98,14 @@ def creer_labyrinthe(largeur, hauteur, diff):
             stack.pop()
     return laby
 
-laby = creer_labyrinthe(4, 3, 30)
-            
-        
-        
-        
-creer_labyrinthe(4, 3, 30)
+if __name__ == "__main__":
+    largeur =  8
+    hauteur = 7    
+    laby = creer_labyrinthe(largeur, hauteur, 30)
+    pos = {node: (node % largeur, -(node // largeur)) for node in laby.nodes()}
+    nx.draw(laby, pos, with_labels=True, node_size=600, node_color='lightblue')
+    plt.show()
+
 
     
     
@@ -157,3 +151,4 @@ def creer_labyrinthe(largeur, hauteur, diff):
                         depart = possible
         else:
             return None"""
+
